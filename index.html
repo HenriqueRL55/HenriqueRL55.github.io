@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Henrique Lengruber — front-end e mobile</title>
+  <meta name="description" content="Henrique Lengruber, desenvolvedor front-end e mobile. Telemedicina, triagem com IA, vídeo em tempo real e mapas de frota em React, Vue e Ionic.">
+  <meta property="og:title" content="Henrique Lengruber — front-end e mobile">
+  <meta property="og:description" content="Telemedicina, triagem com IA, vídeo em tempo real e mapas de frota em React, Vue e Ionic.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="assets/avatar.png">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="hero">
+    <div class="hero__text">
+      <a class="mark" href="#topo" id="topo" aria-label="Início">HL</a>
+      <div class="hero__copy">
+        <h1 class="hero__title">
+          <span class="line"><span>Henrique Lengruber,</span></span>
+          <span class="line"><span>front-end e mobile</span></span>
+        </h1>
+        <p class="hero__lead">Construo telemedicina, triagem com IA, vídeo em tempo real e mapas de frota em React, Vue e Ionic. Hoje na Kompa Saúde e na Hype.</p>
+        <div class="hero__actions">
+          <a class="button" id="mail-hero" href="mailto:henriquerl22@outlook.com?subject=Conversa%20sobre%20uma%20vaga">Falar comigo</a>
+          <a class="text-link" href="#experiencia">Ver experiência</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__instrument">
+      <a class="hero__corner text-link" href="https://www.linkedin.com/in/henrique-lengruber-4649a41b0" rel="noopener">LinkedIn</a>
+      <form class="triage" id="triagem" data-ui aria-labelledby="triagem-titulo">
+        <div class="triage__head">
+          <p class="triage__title" id="triagem-titulo">Pré-triagem da vaga</p>
+          <p class="triage__step">Marque o que o time precisa</p>
+        </div>
+        <fieldset class="triage__group">
+          <legend>Área</legend>
+          <label class="chip"><input type="checkbox" name="area" value="web"><span>Web</span></label>
+          <label class="chip"><input type="checkbox" name="area" value="mobile"><span>Mobile</span></label>
+          <label class="chip"><input type="checkbox" name="area" value="saude"><span>Saúde digital</span></label>
+          <label class="chip"><input type="checkbox" name="area" value="tempo-real"><span>Tempo real</span></label>
+          <label class="chip"><input type="checkbox" name="area" value="mapas"><span>Mapas e dados</span></label>
+        </fieldset>
+        <fieldset class="triage__group">
+          <legend>Formato</legend>
+          <label class="chip"><input type="radio" name="formato" value="CLT"><span>CLT</span></label>
+          <label class="chip"><input type="radio" name="formato" value="PJ"><span>PJ</span></label>
+          <label class="chip"><input type="radio" name="formato" value="Projeto"><span>Projeto</span></label>
+        </fieldset>
+        <div class="triage__readout" aria-live="polite">
+          <p><strong id="triagem-contagem">14 de 14</strong> entregas da experiência combinam</p>
+          <p id="triagem-resumo">Nada marcado ainda</p>
+        </div>
+        <a class="triage__send" id="mail-triagem" href="mailto:henriquerl22@outlook.com?subject=Pr%C3%A9-triagem%20de%20vaga">Enviar ficha por e-mail</a>
+      </form>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="intro" aria-label="Apresentação">
+      <p class="intro__lead reveal">Sou desenvolvedor front-end e mobile desde 2021. Trabalho em produtos que muita gente usa ao mesmo tempo: consultas por vídeo, filas de atendimento, triagem com IA e mapas com centenas de milhares de pontos.</p>
+      <div class="intro__cols">
+        <p class="reveal"><b>Quem sou.</b> Henrique Lengruber, bacharel em Sistemas de Informação pela UFSM. Comecei como estagiário em 2021 e desde então faço interfaces web e mobile para produtos em produção, do agronegócio à saúde pública.</p>
+        <p class="reveal"><b>O que faço.</b> Interfaces em React, Vue e Angular, apps híbridos com Ionic e Capacitor, estado com Zustand e Pinia, formulários com react-hook-form e Zod, vídeo com Twilio e tempo real com WebSocket.</p>
+        <p class="reveal"><b>Onde estou.</b> Em Santa Maria, no Rio Grande do Sul, trabalhando remoto. Na Kompa Saúde, faço apps de telemedicina usados pela SES-SP, pelo Hospital das Clínicas, pela Prefeitura de Joinville e por Unimeds. Na Hype, trabalho no HypeSocial.</p>
+        <p class="reveal"><b>Como falar.</b> Pelo e-mail <a href="mailto:henriquerl22@outlook.com">henriquerl22@outlook.com</a> ou pelo <a href="https://www.linkedin.com/in/henrique-lengruber-4649a41b0" rel="noopener">LinkedIn</a>. Aberto a conversas sobre vagas e projetos, no Brasil e no exterior.</p>
+      </div>
+    </section>
+
+    <section class="ledger" id="experiencia" aria-labelledby="experiencia-titulo">
+      <div class="ledger__list">
+      <h2 class="section-title reveal" id="experiencia-titulo">Experiência</h2>
+
+      <div class="ledger__group reveal">
+        <p class="ledger__company">Kompa Saúde <span>jun 2025 – hoje</span></p>
+        <ul>
+          <li data-tags="saude web mobile" data-demo="triagem"><span>Pré-triagem com IA</span><span>React, Ionic</span><span>até −25% de tempo</span></li>
+          <li data-tags="saude web mobile" data-demo="triagem"><span>Front da triagem com IA da Unimed</span><span>liderança do front</span><span>Unimed</span></li>
+          <li data-tags="saude tempo-real mobile" data-demo="video"><span>Teleconsulta por vídeo</span><span>Twilio Video</span><span>telemedicina</span></li>
+          <li data-tags="saude tempo-real web" data-demo="fila"><span>Fila de atendimento ao vivo</span><span>WebSocket, Socket.IO</span><span>tempo real</span></li>
+          <li data-tags="saude web" data-demo="fila"><span>Login com 2FA e multi-tenant</span><span>segurança</span><span>vários clientes</span></li>
+          <li data-tags="saude web mobile" data-demo="fila"><span>Feature flags por cliente</span><span>Zustand</span><span>multi-tenant</span></li>
+          <li data-tags="saude web mobile" data-demo="triagem"><span>Technical Blueprint do ecossistema</span><span>participação</span><span>arquitetura</span></li>
+        </ul>
+      </div>
+
+      <div class="ledger__group reveal">
+        <p class="ledger__company">Hype <span>hoje</span></p>
+        <ul>
+          <li data-tags="web" data-demo="fila"><span>HypeSocial, gestão de redes sociais</span><span>Vue 3, Pinia, Firebase</span><span>SaaS</span></li>
+        </ul>
+      </div>
+
+      <div class="ledger__group reveal">
+        <p class="ledger__company">Delta Global <span>out 2024 – abr 2025</span></p>
+        <ul>
+          <li data-tags="mapas web tempo-real" data-demo="mapa"><span>Mapas de frota</span><span>React</span><span>800 mil+ veículos</span></li>
+          <li data-tags="web" data-demo="mapa"><span>Otimização com hooks</span><span>React</span><span>até +30% de performance</span></li>
+          <li data-tags="web" data-demo="mapa"><span>Revisão de interface</span><span>UX</span><span>−40% de chamados</span></li>
+        </ul>
+      </div>
+
+      <div class="ledger__group reveal">
+        <p class="ledger__company">Drakkar <span>2021 – 2024</span></p>
+        <ul>
+          <li data-tags="mapas mobile" data-demo="mapa"><span>Heatmaps de lavoura</span><span>Ionic, Angular</span><span>3.700 fazendas</span></li>
+          <li data-tags="mobile web" data-demo="mapa"><span>App do produto em Ionic</span><span>Ionic, Angular</span><span>1.200+ clientes</span></li>
+          <li data-tags="web" data-demo="mapa"><span>Sites em WordPress</span><span>freelas</span><span>vários clientes</span></li>
+        </ul>
+      </div>
+      </div>
+
+      <aside class="ledger__preview" aria-label="Quatro telas">
+        <p class="ledger__note">Ilustrações feitas em código para este portfólio. Mostram o tipo de tela, não as telas dos clientes.</p>
+        <article class="demo" id="demo-triagem">
+        <p><b>Triagem.</b> Antes da consulta, o paciente responde perguntas curtas, uma por vez. A resposta chega pronta para quem atende, e a consulta começa do ponto certo.</p>
+        <div class="screen screen--triage" data-ui aria-hidden="true">
+          <p class="screen__bar"><span>Triagem</span><span class="screen__step">Pergunta <b data-triage-step>2</b> de 5</span></p>
+          <p class="screen__q" data-triage-q>Há quanto tempo você sente os sintomas?</p>
+          <ul class="screen__options" data-triage-options>
+            <li>Menos de 24 horas</li>
+            <li>De 1 a 3 dias</li>
+            <li>Mais de 3 dias</li>
+          </ul>
+          <div class="screen__progress"><span data-triage-progress></span></div>
+        </div>
+      </article>
+
+      <article class="demo" id="demo-video">
+        <p><b>Teleconsulta.</b> Vídeo entre paciente e profissional no navegador e no app, com controle de câmera e microfone e o tempo de consulta à vista.</p>
+        <div class="screen screen--video" data-ui aria-hidden="true">
+          <div class="video__main"><span class="video__initials">MS</span><span class="video__name">Profissional</span></div>
+          <div class="video__self"><span class="video__initials">VC</span></div>
+          <div class="video__bar">
+            <span class="video__time" data-video-time>00:00</span>
+            <span class="video__btn">Microfone</span>
+            <span class="video__btn">Câmera</span>
+            <span class="video__btn video__btn--end">Encerrar</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="demo" id="demo-fila">
+        <p><b>Fila ao vivo.</b> Quem entra na fila aparece para o profissional na hora, sem recarregar a página. O tempo de espera de cada pessoa corre na tela.</p>
+        <div class="screen screen--queue" data-ui aria-hidden="true">
+          <p class="screen__bar"><span>Fila de atendimento</span><span data-queue-count>4 aguardando</span></p>
+          <ul class="queue" data-queue>
+            <li><span>A. R.</span><span>Clínica geral</span><span data-wait="412">06:52</span></li>
+            <li><span>J. P.</span><span>Pediatria</span><span data-wait="268">04:28</span></li>
+            <li><span>L. M.</span><span>Clínica geral</span><span data-wait="131">02:11</span></li>
+            <li><span>C. S.</span><span>Psicologia</span><span data-wait="40">00:40</span></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="demo" id="demo-mapa">
+        <p><b>Mapa de calor.</b> Muitos pontos viram uma leitura só: onde a frota está concentrada, que talhão pede atenção. A grade se atualiza sem travar a tela.</p>
+        <div class="screen screen--map" data-ui aria-hidden="true">
+          <p class="screen__bar"><span>Densidade por região</span><span data-map-total>812.400 pontos</span></p>
+          <div class="heat" data-heat></div>
+        </div>
+      </article>
+      </aside>
+    </section>
+
+
+    <section class="tools" aria-labelledby="ferramentas-titulo">
+      <h2 class="section-title reveal" id="ferramentas-titulo">Ferramentas</h2>
+      <div class="tools__group reveal">
+        <p class="tools__label">Web</p>
+        <ul>
+          <li><span>React</span><span>Kompa, Delta Global</span></li>
+          <li><span>TypeScript</span><span>Kompa, Hype</span></li>
+          <li><span>Vue 3</span><span>Hype</span></li>
+          <li><span>Angular</span><span>Drakkar</span></li>
+          <li><span>Element Plus</span><span>Hype</span></li>
+          <li><span>Vite</span><span>Kompa, Hype</span></li>
+        </ul>
+      </div>
+      <div class="tools__group reveal">
+        <p class="tools__label">Mobile</p>
+        <ul>
+          <li><span>Ionic</span><span>Kompa, Drakkar</span></li>
+          <li><span>Capacitor</span><span>Kompa</span></li>
+          <li><span>React Native e Expo</span><span>estudo</span></li>
+        </ul>
+      </div>
+      <div class="tools__group reveal">
+        <p class="tools__label">Tempo real e vídeo</p>
+        <ul>
+          <li><span>WebSocket e Socket.IO</span><span>Kompa</span></li>
+          <li><span>Twilio Video</span><span>Kompa</span></li>
+          <li><span>Firebase</span><span>Hype</span></li>
+        </ul>
+      </div>
+      <div class="tools__group reveal">
+        <p class="tools__label">Estado, formulários e testes</p>
+        <ul>
+          <li><span>Zustand</span><span>Kompa</span></li>
+          <li><span>Pinia</span><span>Hype</span></li>
+          <li><span>react-hook-form e Zod</span><span>Kompa</span></li>
+          <li><span>Vitest</span><span>Hype</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="about" aria-label="Sobre">
+      <div class="about__row">
+        <dl class="about__facts reveal">
+          <div><dt>Formação</dt><dd>Sistemas de Informação, UFSM</dd></div>
+          <div><dt>Base</dt><dd>Santa Maria, RS</dd></div>
+          <div><dt>Na área desde</dt><dd>2021</dd></div>
+        </dl>
+        <p class="about__text reveal">Gosto de interface que aguenta o mundo real: o paciente no celular, a fila que não pode travar, o veículo achado entre 800 mil. Meu trabalho é deixar essas telas rápidas, claras e difíceis de quebrar.</p>
+      </div>
+      <div class="about__row about__row--record">
+        <p class="about__word reveal">Onde meu código roda</p>
+        <ul class="about__list reveal">
+          <li><span>Secretaria da Saúde de SP</span><span>Kompa</span></li>
+          <li><span>Hospital das Clínicas</span><span>Kompa</span></li>
+          <li><span>Prefeitura de Joinville</span><span>Kompa</span></li>
+          <li><span>Unimeds</span><span>Kompa</span></li>
+        </ul>
+        <ul class="about__list reveal">
+          <li><span>Kompa Saúde</span><span>2025 – hoje</span></li>
+          <li><span>Hype</span><span>hoje</span></li>
+          <li><span>Delta Global</span><span>2024 – 2025</span></li>
+          <li><span>Drakkar</span><span>2021 – 2024</span></li>
+          <li><span>PET-SI UFSM</span><span>graduação</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="contact" id="contato" aria-label="Contato">
+      <p class="contact__sentence reveal">Vagas de front-end ou mobile, produtos de saúde e times que entregam toda semana: me escreva.</p>
+      <img class="contact__portrait reveal" src="assets/avatar.png" width="240" height="240" alt="Retrato de Henrique Lengruber" loading="lazy">
+      <div class="contact__links reveal">
+        <p class="contact__question">Vamos conversar?</p>
+        <a id="mail-contato" href="mailto:henriquerl22@outlook.com?subject=Conversa%20sobre%20uma%20vaga">henriquerl22@outlook.com</a>
+        <a href="https://www.linkedin.com/in/henrique-lengruber-4649a41b0" rel="noopener">LinkedIn</a>
+        <p class="contact__where">Santa Maria, RS · remoto · Brasil e exterior</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Henrique Lengruber, front-end e mobile</p>
+    <nav aria-label="Links">
+      <a href="mailto:henriquerl22@outlook.com">E-mail</a>
+      <a href="https://www.linkedin.com/in/henrique-lengruber-4649a41b0" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/HenriqueRL55" rel="noopener">GitHub</a>
+    </nav>
+    <p class="footer__year">2026</p>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
