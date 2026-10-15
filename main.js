@@ -1,4 +1,6 @@
 const EMAIL = 'henriquerl22@outlook.com';
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${EMAIL}`;
+const COPY_FEEDBACK_MS = 2000;
 
 function setupNav() {
   const nav = document.querySelector('.nav');
@@ -75,8 +77,7 @@ function animateCount(element) {
 }
 
 function setupCounters() {
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion || !('IntersectionObserver' in window)) return;
+  if (!('IntersectionObserver' in window)) return;
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -88,24 +89,97 @@ function setupCounters() {
   document.querySelectorAll('[data-count]').forEach((counter) => observer.observe(counter));
 }
 
+function readContact(form) {
+  const data = new FormData(form);
+  const field = (name) => String(data.get(name) || '').trim();
+  const topic = field('assunto') || form.dataset.defaultTopic;
+  const name = field('nome');
+  const company = field('empresa');
+  const email = field('email');
+  const message = field('mensagem');
+
+  const subject = `${topic} · ${name}${company ? ` (${company})` : ''}`;
+  const signature = [name, company, email].filter(Boolean).join(', ');
+  return {
+    isSpam: field('_honey') !== '',
+    subject,
+    body: `${message}\n\n— ${signature}`,
+    payload: { _subject: subject, _honey: '', assunto: topic, nome: name, empresa: company, email, mensagem: message },
+  };
+}
+
+async function sendContact(payload) {
+  const response = await fetch(FORM_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  const result = await response.json().catch(() => ({}));
+  if (!response.ok || String(result.success) !== 'true') {
+    throw new Error(result.message || `HTTP ${response.status}`);
+  }
+}
+
+function openMailto({ subject, body }) {
+  window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
 function setupContactForm() {
   const form = document.getElementById('form-contato');
   if (!form) return;
+  const status = form.querySelector('.form__status');
+  const button = form.querySelector('[type="submit"]');
 
-  form.addEventListener('submit', (event) => {
+  function setStatus(key) {
+    status.textContent = form.dataset[key];
+    status.dataset.state = key;
+  }
+
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
     if (!form.reportValidity()) return;
 
-    const data = new FormData(form);
-    const topic = data.get('assunto') || form.dataset.defaultTopic;
-    const name = String(data.get('nome') || '').trim();
-    const company = String(data.get('empresa') || '').trim();
-    const message = String(data.get('mensagem') || '').trim();
+    const contact = readContact(form);
+    if (contact.isSpam) return;
 
-    const subject = `${topic} · ${name}${company ? ` (${company})` : ''}`;
-    const signature = company ? `${name}, ${company}` : name;
-    const body = `${message}\n\n— ${signature}`;
-    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    button.disabled = true;
+    setStatus('msgSending');
+    try {
+      await sendContact(contact.payload);
+      form.reset();
+      setStatus('msgSuccess');
+    } catch {
+      setStatus('msgError');
+      openMailto(contact);
+    } finally {
+      button.disabled = false;
+    }
+  });
+}
+
+function setupCopyButtons() {
+  document.querySelectorAll('[data-copy]').forEach((button) => {
+    const label = button.querySelector('span');
+    const original = label.textContent;
+    let timer;
+
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(button.dataset.copy);
+        label.textContent = button.dataset.labelDone;
+        button.dataset.state = 'done';
+      } catch {
+        label.textContent = button.dataset.labelFail;
+        button.dataset.state = 'fail';
+      }
+      button.title = label.textContent;
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        label.textContent = original;
+        button.removeAttribute('title');
+        delete button.dataset.state;
+      }, COPY_FEEDBACK_MS);
+    });
   });
 }
 
@@ -113,3 +187,4 @@ setupNav();
 setupReveal();
 setupCounters();
 setupContactForm();
+setupCopyButtons();
