@@ -683,6 +683,32 @@ strong { font-weight: 700; color: var(--text); }
 }
 .odds__pins i:first-child { background: rgba(255, 122, 26, 0.3); border-color: rgba(255, 122, 26, 0.5); }
 
+.pulse { display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+.pulse__tag {
+  align-self: flex-start;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--orange-soft);
+  color: var(--orange-2);
+}
+.pulse__row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.pulse__scale, .pulse__peers { display: flex; gap: 8px; }
+.pulse__scale i { width: 16px; height: 16px; border-radius: 50%; background: var(--line-strong); }
+.pulse__scale i.on { background: var(--gradient); }
+.pulse__peers i {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--card-hover);
+  border: 1px solid var(--line-strong);
+}
+.pulse__peers i.on { background: rgba(255, 122, 26, 0.3); border-color: rgba(255, 122, 26, 0.5); color: var(--orange-2); }
+
 .case__company { font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--orange-2); }
 .case h3 { margin-top: 8px; font-size: 21px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.25; }
 
