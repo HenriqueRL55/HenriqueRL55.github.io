@@ -951,7 +951,7 @@ strong { font-weight: 700; color: var(--text); }
 
 .form__note { font-size: 13px; color: var(--muted); text-align: center; }
 .form__status[data-state="msgSuccess"] { color: var(--green); }
-.form__status[data-state="msgError"] { color: var(--orange-2); }
+.form__status[data-state="msgError"], .form__status[data-state="msgCooldown"] { color: var(--orange-2); }
 .btn:disabled { opacity: 0.6; cursor: progress; transform: none; }
 
 .footer { margin-top: var(--section); padding: 40px 0; border-top: 1px solid var(--line); background: var(--bg-2); }

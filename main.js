@@ -1,6 +1,9 @@
 const EMAIL = 'henriquerl22@outlook.com';
 const FORM_ENDPOINT = `https://formsubmit.co/ajax/${EMAIL}`;
 const COPY_FEEDBACK_MS = 2000;
+const MIN_FILL_MS = 3000;
+const SEND_COOLDOWN_MS = 60000;
+const LAST_SENT_STORAGE_KEY = 'portfolio-contact-last-sent';
 
 function setupNav() {
   const nav = document.querySelector('.nav');
@@ -124,11 +127,29 @@ function openMailto({ subject, body }) {
   window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
+function readLastSent() {
+  try {
+    return Number(window.localStorage.getItem(LAST_SENT_STORAGE_KEY)) || 0;
+  } catch {
+    return 0;
+  }
+}
+
+function storeLastSent(timestamp) {
+  try {
+    window.localStorage.setItem(LAST_SENT_STORAGE_KEY, String(timestamp));
+  } catch {
+    return false;
+  }
+  return true;
+}
+
 function setupContactForm() {
   const form = document.getElementById('form-contato');
   if (!form) return;
   const status = form.querySelector('.form__status');
   const button = form.querySelector('[type="submit"]');
+  const loadedAt = Date.now();
 
   function setStatus(key) {
     status.textContent = form.dataset[key];
@@ -141,11 +162,17 @@ function setupContactForm() {
 
     const contact = readContact(form);
     if (contact.isSpam) return;
+    const now = Date.now();
+    if (now - loadedAt < MIN_FILL_MS || now - readLastSent() < SEND_COOLDOWN_MS) {
+      setStatus('msgCooldown');
+      return;
+    }
 
     button.disabled = true;
     setStatus('msgSending');
     try {
       await sendContact(contact.payload);
+      storeLastSent(Date.now());
       form.reset();
       setStatus('msgSuccess');
     } catch {

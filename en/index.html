@@ -3,10 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Du+OJKJSbdUgz5nrHeWWINvez6XKDDU/tyj/5c2uvwo=' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formsubmit.co https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action https://formsubmit.co; base-uri 'self'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Henrique Lengruber · Front-End & Mobile Developer</title>
-  <meta name="description" content="Henrique Lengruber, Front-End and Mobile developer from Brazil. Web applications and iOS and Android apps with React, Vue, Ionic and TypeScript for healthcare, agribusiness and digital marketing.">
+  <meta name="description" content="Henrique Lengruber, Front-End and Mobile developer from Brazil. Web applications and iOS and Android apps with React, Vue, Ionic and TypeScript for healthcare, fleet tracking, agribusiness and digital marketing.">
   <meta property="og:title" content="Henrique Lengruber · Front-End & Mobile Developer">
-  <meta property="og:description" content="Web applications and iOS and Android apps with React, Vue, Ionic and TypeScript. 5+ years in healthcare, agribusiness and digital marketing, from prototype to release.">
+  <meta property="og:description" content="Web applications and iOS and Android apps with React, Vue, Ionic and TypeScript. 5+ years in healthcare, fleet tracking, agribusiness and digital marketing, from prototype to release.">
   <meta property="og:image" content="https://henriquerl55.github.io/assets/og-image-en.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -26,7 +28,7 @@
     "@type": "Person",
     "name": "Henrique Lengruber",
     "jobTitle": "Front-End & Mobile Developer",
-    "description": "Front-End and Mobile developer with 5+ years building web applications and iOS and Android apps for healthcare, agribusiness and digital marketing.",
+    "description": "Front-End and Mobile developer with 5+ years building web applications and iOS and Android apps for healthcare, fleet tracking, agribusiness and digital marketing.",
     "worksFor": [
       { "@type": "Organization", "name": "Kompa Saúde", "url": "https://www.kompa.com.br/" },
       { "@type": "Organization", "name": "Softers", "url": "https://www.softers.com.br/" }
@@ -38,7 +40,7 @@
     "address": { "@type": "PostalAddress", "addressLocality": "Santa Maria", "addressRegion": "RS", "addressCountry": "BR" },
     "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidade Federal de Santa Maria", "url": "https://www.ufsm.br/" },
     "knowsLanguage": ["pt-BR", "en"],
-    "knowsAbout": ["React", "React Native", "Vue.js", "Angular", "TypeScript", "Ionic", "Capacitor", "iOS", "Android", "WebRTC", "WebSocket", "Google Maps", "Firebase", "Telehealth", "Social media management", "Precision agriculture"],
+    "knowsAbout": ["React", "React Native", "Vue.js", "Angular", "TypeScript", "Ionic", "Capacitor", "iOS", "Android", "WebRTC", "WebSocket", "Google Maps", "Firebase", "Telehealth", "Fleet tracking", "Social media management", "Precision agriculture"],
     "sameAs": ["https://www.linkedin.com/in/henrique-lengruber-4649a41b0", "https://github.com/HenriqueRL55"]
   }
   </script>
@@ -114,7 +116,7 @@
           <p class="status reveal"><span class="status__dot" aria-hidden="true"></span>Open to remote roles · UTC−3 · English: intermediate</p>
           <p class="hero__hello reveal">Hi, I'm Henrique <span class="wave" aria-hidden="true">👋</span></p>
           <h1 class="hero__title reveal">Front-End &amp; Mobile for products <span class="accent">in production</span></h1>
-          <p class="hero__lead reveal">I build web applications and iOS and Android apps with React, Vue, Ionic and TypeScript. That's 5+ years building software for healthcare, agribusiness and digital marketing, from prototype to release.</p>
+          <p class="hero__lead reveal">I build web applications and iOS and Android apps with React, Vue, Ionic and TypeScript. That's 5+ years building software for healthcare, fleet tracking, agribusiness and digital marketing, from prototype to release.</p>
 
           <div class="hero__actions reveal">
             <a class="btn" href="#contact">Get in touch <svg class="icon"><use href="#i-arrow"/></svg></a>
@@ -356,7 +358,7 @@
           <article class="service reveal">
             <span class="service__icon"><svg class="icon"><use href="#i-video"/></svg></span>
             <h3>Real time</h3>
-            <p>Live care queues with WebSocket and Socket.IO, WebRTC transcription and video calls, without reloading the page.</p>
+            <p>Fleet tracking with 800k+ vehicles on the map, live care queues with WebSocket and Socket.IO, WebRTC transcription and video calls, without reloading the page.</p>
           </article>
         </div>
       </div>
@@ -653,7 +655,7 @@
             </ul>
           </div>
 
-          <form class="form" id="form-contato" data-default-topic="Contact" data-msg-sending="Sending…" data-msg-success="Message sent! I'll reply to the email you provided." data-msg-error="I couldn't send it from here, so I opened your email app with the message ready." action="https://formsubmit.co/henriquerl22@outlook.com" method="post">
+          <form class="form" id="form-contato" data-default-topic="Contact" data-msg-sending="Sending…" data-msg-success="Message sent! I'll reply to the email you provided." data-msg-cooldown="You just sent a message. Please wait a minute before sending another." data-msg-error="I couldn't send it from here, so I opened your email app with the message ready." action="https://formsubmit.co/henriquerl22@outlook.com" method="post">
             <fieldset class="form__topics">
               <legend>Subject</legend>
               <label class="chip"><input type="radio" name="assunto" value="Full-time role" checked><span>Full-time role</span></label>
@@ -662,11 +664,11 @@
               <label class="chip"><input type="radio" name="assunto" value="Other"><span>Other</span></label>
             </fieldset>
             <div class="form__row">
-              <label class="field"><span>Your name</span><input type="text" name="nome" autocomplete="name" required></label>
-              <label class="field"><span>Company</span><input type="text" name="empresa" autocomplete="organization"></label>
+              <label class="field"><span>Your name</span><input type="text" name="nome" autocomplete="name" maxlength="80" required></label>
+              <label class="field"><span>Company</span><input type="text" name="empresa" autocomplete="organization" maxlength="80"></label>
             </div>
-            <label class="field"><span>Your email</span><input type="email" name="email" autocomplete="email" required></label>
-            <label class="field"><span>Message</span><textarea name="mensagem" rows="5" required></textarea></label>
+            <label class="field"><span>Your email</span><input type="email" name="email" autocomplete="email" maxlength="120" required></label>
+            <label class="field"><span>Message</span><textarea name="mensagem" rows="5" minlength="10" maxlength="2000" required></textarea></label>
             <label class="form__honey" aria-hidden="true">Leave this empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
             <input type="hidden" name="_subject" value="Portfolio contact">
             <button class="btn btn--full" type="submit">Send message <svg class="icon"><use href="#i-send"/></svg></button>
